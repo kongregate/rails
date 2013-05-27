@@ -874,8 +874,6 @@ module ActiveRecord
 
       return [] if joins.empty?
 
-      @implicit_readonly = true
-
       joins.map do |join|
         case join
         when Array
@@ -964,8 +962,6 @@ module ActiveRecord
 
       join_dependency.graft(*stashed_association_joins)
 
-      @implicit_readonly = true unless association_joins.empty? && stashed_association_joins.empty?
-
       # FIXME: refactor this to build an AST
       join_dependency.join_associations.each do |association|
         association.join_to(manager)
@@ -978,7 +974,6 @@ module ActiveRecord
 
     def build_select(arel, selects)
       unless selects.empty?
-        @implicit_readonly = false
         arel.project(*selects)
       else
         arel.project(@klass.arel_table[Arel.star])
