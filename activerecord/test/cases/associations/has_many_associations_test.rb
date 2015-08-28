@@ -59,9 +59,9 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
 
       developer_project = Class.new(ActiveRecord::Base) {
         self.table_name = 'developers_projects'
-        belongs_to :developer, :class => dev
+        belongs_to :developer, :anonymous_class => dev
       }
-      has_many :developer_projects, :class => developer_project, :foreign_key => 'developer_id'
+      has_many :developer_projects, :anonymous_class => developer_project, :foreign_key => 'developer_id'
     }
     dev = developer.first
     named = Developer.find(dev.id)
@@ -353,6 +353,19 @@ class HasManyAssociationsTest < ActiveRecord::TestCase
     assert_raise(ActiveRecord::RecordNotFound) { authors(:bob).posts.take! }
     authors(:bob).posts.to_a
     assert_raise(ActiveRecord::RecordNotFound) { authors(:bob).posts.take! }
+  end
+
+  def test_taking_with_a_number
+    # taking from unloaded Relation
+    bob = Author.find(authors(:bob).id)
+    assert_equal [posts(:misc_by_bob)], bob.posts.take(1)
+    bob = Author.find(authors(:bob).id)
+    assert_equal [posts(:misc_by_bob), posts(:other_by_bob)], bob.posts.take(2)
+
+    # taking from loaded Relation
+    bob.posts.to_a
+    assert_equal [posts(:misc_by_bob)], authors(:bob).posts.take(1)
+    assert_equal [posts(:misc_by_bob), posts(:other_by_bob)], authors(:bob).posts.take(2)
   end
 
   def test_taking_with_inverse_of

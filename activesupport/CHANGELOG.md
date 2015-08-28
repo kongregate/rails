@@ -1,3 +1,30 @@
+## Rails 4.1.13 (August 24, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.12 (June 25, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.11 (June 16, 2015) ##
+
+*   Fix XSS vulnerability in `ActiveSupport::JSON.encode` method.
+
+    CVE-2015-3226.
+
+    *Rafael Mendonça França*
+
+*   Fix denial of service vulnerability in the XML processing.
+
+    CVE-2015-3227.
+
+    *Aaron Patterson*
+
+
+## Rails 4.1.10 (March 19, 2015) ##
+
 *   Fixed a roundtrip problem with AS::SafeBuffer where primitive-like strings
     will be dumped as primitives:
 

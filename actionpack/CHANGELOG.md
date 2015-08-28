@@ -1,3 +1,33 @@
+## Rails 4.1.13 (August 24, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.12 (June 25, 2015) ##
+
+*   Fix handling of empty X_FORWARDED_HOST header in raw_host_with_port
+
+    Previously, an empty X_FORWARDED_HOST header would cause
+    Actiondispatch::Http:URL.raw_host_with_port to return nil, causing
+    Actiondispatch::Http:URL.host to raise a NoMethodError.
+
+    *Adam Forsyth*
+
+*   Fix regression in functional tests. Responses should have default headers
+    assigned.
+
+    See #18423.
+
+    *Jeremy Kemper*, *Yves Senn*
+
+
+## Rails 4.1.11 (June 16, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.10 (March 19, 2015) ##
+
 *   Preserve default format when generating URLs
 
     Fixes an issue that would cause the format set in default_url_options to be

@@ -1,3 +1,47 @@
+## Rails 4.1.13 (August 24, 2015) ##
+
+*   Don't define autosave association callbacks twice from
+    `accepts_nested_attributes_for`.
+
+    Fixes #18704.
+
+    *Sean Griffin*
+
+## Rails 4.1.12 (June 25, 2015) ##
+
+*   Raises the right exception when declares a has many through
+    association with missing source.
+
+    *Mauro George*
+
+*   Revert behavior of `db:schema:load` back to loading the full
+    environment. This ensures that initializers are run.
+
+    Fixes #19545.
+
+    *Yves Senn*
+
+*   Rename `:class` to `:anonymous_class` in association options.
+
+    Fixes #19659.
+
+    *Andrew White*
+
+*   Fix referencing wrong table aliases while joining tables of has many through
+    association (only when calling calculation methods).
+
+    Fixes #19276.
+
+    *pinglamb*
+
+
+## Rails 4.1.11 (June 16, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.10 (March 19, 2015) ##
+
 *   Fixed ActiveRecord::Relation#becomes! and changed_attributes issues for type column
 
     Fixes #17139.

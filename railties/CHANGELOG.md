@@ -1,3 +1,41 @@
+## Rails 4.1.13 (August 24, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.12 (June 25, 2015) ##
+
+*   Add support for inline images in mailer previews by using an interceptor
+    class to convert cid: urls in image src attributes to data urls. The
+    interceptor is not enabled by default but can be done in an initializer:
+
+        # config/initializer/preview_interceptors.rb
+        ActionMailer::Base.register_preview_interceptor(ActionMailer::InlinePreviewInterceptor)
+
+    *Andrew White*
+
+*   Fix mailer previews with attachments by using the mail gem's own API to
+    locate the first part of the correct mime type.
+
+    Fixes #14435.
+
+    *Andrew White*
+
+
+## Rails 4.1.11 (June 16, 2015) ##
+
+*   No changes.
+
+
+## Rails 4.1.10 (March 19, 2015) ##
+
+*   Add a new-line to the end of route method generated code.
+
+    We need to add a `\n`, because we cannot have two routes
+    in the same line.
+
+    *arthurnn*
+
 *   Force generated routes to be inserted into routes.rb
 
     *Andrew White*
