@@ -1,3 +1,16 @@
+*   Generate `week_field` input values using a 1-based index and not a 0-based index
+    as per the W3 spec: http://www.w3.org/TR/html-markup/datatypes.html#form.data.week
+
+    *Christoph Geschwind*
+
+
+## Rails 4.1.14 (November 12, 2015) ##
+
+*   Fix `mail_to` when called with `nil` as argument.
+
+    *Rafael Mendonça França*
+
+
 ## Rails 4.1.13 (August 24, 2015) ##
 
 *   No changes.

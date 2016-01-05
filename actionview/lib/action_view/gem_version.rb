@@ -7,7 +7,7 @@ module ActionView
   module VERSION
     MAJOR = 4
     MINOR = 1
-    TINY  = 13
+    TINY  = 14
     PRE   = nil
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join(".")
